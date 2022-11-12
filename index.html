@@ -1,0 +1,442 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+            <title>Lunes de Kinnporhse</title>
+        <style> 
+            body { 
+
+               /* background: url("fondo5.png") */
+                background: black url("fondo5.png")
+                no-repeat;          
+               
+            } 
+        * {
+            box-sizing: border-box;
+        }
+
+        .columna {
+            float: left;
+            width: 25%;
+
+        }
+        .cuadro {
+            float: left;
+            content: "";
+            clear: both;
+            width: 50%;
+            height: 50%;
+            }
+            .cuadro2 {
+            float: left;
+            content: "";
+            clear: both;
+            width: 100%;
+            height: 100%;
+            }
+
+        .fila::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        img {
+            /* Para que sea responsiva */
+            width: 200px;
+            height: 200px;
+        }
+        .move{
+            cursor:move;
+            position: fixed;
+
+        }
+        .mov{
+            cursor:move;
+        }
+        
+        .kimmove {
+            cursor:move;
+            position: fixed;
+            margin-left: 600px;
+            margin-top: 600px;
+            z-index: -1;
+        }
+        .vegasmove {
+            cursor:move;
+            position: fixed;
+            margin-left: 400px;
+            margin-top: 600px;
+            z-index: -1;
+        }
+        .jjmove {
+            cursor:move;
+            position: absolute;
+            margin-left: 200px;
+            margin-top: 600px;
+            z-index: -1;
+        }
+        .kunmove {
+            cursor:move;
+            position: absolute;
+            margin-left: 0px;
+            margin-top: 600px;
+            z-index: -1;
+        }
+        .kornmove {
+            cursor:move;
+            position: absolute;
+            margin-left: 600px;
+            margin-top: 400px;
+            z-index: -1;
+        }
+        .bassmove {
+            cursor:move;
+            position: absolute;
+            margin-left: 400px;
+            margin-top: 400px;
+            z-index: -1;
+        }
+        .porshemove {
+            cursor:move;
+            position: absolute;
+            margin-left: 200px;
+            margin-top: 400px;
+            z-index: -1;
+        }
+        .petemove {
+            cursor:move;
+            position: absolute;
+            margin-left: 0px;
+            margin-top: 400px;
+            z-index: -1;
+        }
+        .tankunmove {
+            cursor:move;
+            position: absolute;
+            margin-left: 600px;
+            margin-top: 200px;
+            z-index: -1;
+        }
+        .usmove {
+            cursor:move;
+            position: absolute;
+            margin-left: 400px;
+            margin-top: 200px;
+            z-index: -1;
+        }
+        .barcodemove {
+            cursor:move;
+            position: absolute;
+            margin-left: 200px;
+            margin-top: 200px;
+            z-index: -1;
+        }
+        .kinnmove {
+            cursor:move;
+            position: absolute;
+            margin-left: 0px;
+            margin-top: 200px;
+            z-index: -1;
+        }
+        .arriba {
+            z-index: 10;
+            opacity: 10;
+        }
+    </style>
+</head>
+          
+
+        </style> 
+    </head> 
+    <body>
+        
+    <div class="kinnmove">
+        <img src="kinn.jpg">
+    </div>
+    <div class="barcodemove">
+        <img src="barcode.jpg">
+    </div>
+    <div class="usmove">
+        <img src="us.jpg">
+    </div>
+    <div class="tankunmove">
+        <img src="tankun.jpg">
+    </div>
+    <div class="petemove">
+        <img src="pete.jpg">
+    </div>
+    <div class="porshemove">
+        <img src="porshe.jpg">
+    </div>
+    <div class="bassmove">
+        <img src="bass.jpg">
+    </div>
+    <div class="kornmove">
+        <img src="korn.jpg">
+    </div>
+    <div class="kunmove">
+        <img src="kun.jpg">
+    </div>
+    <div class="jjmove">
+        <img src="jj.jpg">
+    </div>
+    <div class="vegasmove">
+        <img src="vegas.jpg">
+    </div>
+    <div class="kimmove">
+        <img src="kim.jpg">
+    </div>
+    </body>
+    <script> 
+    
+var move = document.querySelector('.move');
+var kimmove = document.querySelector('.kimmove');
+var vegasmove = document.querySelector('.vegasmove');
+var jjmove = document.querySelector('.jjmove');
+var kunmove = document.querySelector('.kunmove');
+var kornmove = document.querySelector('.kornmove');
+var bassmove = document.querySelector('.bassmove');
+var porshemove = document.querySelector('.porshemove');
+var petemove = document.querySelector('.petemove');
+var tankunmove = document.querySelector('.tankunmove');
+var usmove = document.querySelector('.usmove');
+var barcodemove = document.querySelector('.barcodemove');
+var kinnmove = document.querySelector('.kinnmove');
+
+
+kimmove.addEventListener('mousedown',mousedownkim);
+vegasmove.addEventListener('mousedown',mousedownvegas);
+jjmove.addEventListener('mousedown',mousedownjj);
+kunmove.addEventListener('mousedown',mousedownkun);
+
+kornmove.addEventListener('mousedown',mousedownkorn);
+bassmove.addEventListener('mousedown',mousedownbass);
+porshemove.addEventListener('mousedown',mousedownporshe);
+petemove.addEventListener('mousedown',mousedownpete);
+tankunmove.addEventListener('mousedown',mousedowntankun);
+usmove.addEventListener('mousedown',mousedownus);
+barcodemove.addEventListener('mousedown',mousedownbarcode);
+kinnmove.addEventListener('mousedown',mousedownkinn);
+
+function mousedownkim(){    
+    kimmove.addEventListener('mousemove',mousemove);
+    kimmove.addEventListener('mouseup',mouseup);
+    function mousemove(e){
+        var x = e.clientX -100 + 'px';
+        var y = e.clientY -100 + 'px';
+        this.style.top = y;
+        this.style.width="20";
+        this.style.height="20";
+        this.style.left = x;        
+        this.style.margin= "0";
+        this.classList.add("arriba");
+    }
+    function mouseup(){
+        kimmove.removeEventListener('mousemove', mousemove);
+        this.classList.remove("arriba");
+    }
+}
+function mousedownvegas(){    
+        vegasmove.addEventListener('mousemove',mousemove);
+        vegasmove.addEventListener('mouseup',mouseup);
+        function mousemove(e){
+        var x = e.clientX -100 + 'px';
+        var y = e.clientY -100 + 'px';
+        this.style.top = y;
+        this.style.width="20";
+        this.style.height="20";
+        this.style.left = x;
+        this.style.margin= "0";
+        this.classList.add("arriba");
+    }
+    function mouseup(){
+        vegasmove.removeEventListener('mousemove', mousemove);
+        this.classList.remove("arriba");
+    }
+}
+function mousedownjj(){    
+        jjmove.addEventListener('mousemove',mousemove);
+        jjmove.addEventListener('mouseup',mouseup);
+        function mousemove(e){
+        var x = e.clientX -100 + 'px';
+        var y = e.clientY -100 + 'px';
+        this.style.top = y;
+        this.style.width="20";
+        this.style.height="20";
+        this.style.left = x;
+        this.style.margin= "0";
+        this.classList.add("arriba");
+    }
+    function mouseup(){
+        jjmove.removeEventListener('mousemove', mousemove);
+        this.classList.remove("arriba");
+    }
+}
+function mousedownkun(){    
+        kunmove.addEventListener('mousemove',mousemove);
+        kunmove.addEventListener('mouseup',mouseup);
+        function mousemove(e){
+        var x = e.clientX -100 + 'px';
+        var y = e.clientY -100 + 'px';
+        this.style.top = y;
+        this.style.width="20";
+        this.style.height="20";
+        this.style.left = x;
+        this.style.margin= "0";
+        this.classList.add("arriba");
+    }
+    function mouseup(){
+        kunmove.removeEventListener('mousemove', mousemove);
+        this.classList.remove("arriba");
+    }
+}
+
+function mousedownkorn(){    
+        kornmove.addEventListener('mousemove',mousemove);
+        kornmove.addEventListener('mouseup',mouseup);
+        function mousemove(e){
+        var x = e.clientX -100 + 'px';
+        var y = e.clientY -100 + 'px';
+        this.style.top = y;
+        this.style.width="20";
+        this.style.height="20";
+        this.style.left = x;
+        this.style.margin= "0";
+        this.classList.add("arriba");
+    }
+    function mouseup(){
+        kornmove.removeEventListener('mousemove', mousemove);
+        this.classList.remove("arriba");
+    }
+}
+function mousedownbass(){    
+        bassmove.addEventListener('mousemove',mousemove);
+        bassmove.addEventListener('mouseup',mouseup);
+        function mousemove(e){
+        var x = e.clientX -100 + 'px';
+        var y = e.clientY -100 + 'px';
+        this.style.top = y;
+        this.style.width="20";
+        this.style.height="20";
+        this.style.left = x;
+        this.style.margin= "0";
+        this.classList.add("arriba");
+    }
+    function mouseup(){
+        bassmove.removeEventListener('mousemove', mousemove);
+        this.classList.remove("arriba");
+    }
+}
+function mousedownporshe(){    
+        porshemove.addEventListener('mousemove',mousemove);
+        porshemove.addEventListener('mouseup',mouseup);
+        function mousemove(e){
+        var x = e.clientX -100 + 'px';
+        var y = e.clientY -100 + 'px';
+        this.style.top = y;
+        this.style.width="20";
+        this.style.height="20";
+        this.style.left = x;
+        this.style.margin= "0";
+        this.classList.add("arriba");
+    }
+    function mouseup(){
+        porshemove.removeEventListener('mousemove', mousemove);
+        this.classList.remove("arriba");
+    }
+}
+function mousedownpete(){    
+        petemove.addEventListener('mousemove',mousemove);
+        petemove.addEventListener('mouseup',mouseup);
+        function mousemove(e){
+        var x = e.clientX -100 + 'px';
+        var y = e.clientY -100 + 'px';
+        this.style.top = y;
+        this.style.width="20";
+        this.style.height="20";
+        this.style.left = x;
+        this.style.margin= "0";
+        this.classList.add("arriba");
+    }
+    function mouseup(){
+        petemove.removeEventListener('mousemove', mousemove);
+        this.classList.remove("arriba");
+    }
+}
+function mousedowntankun(){    
+        tankunmove.addEventListener('mousemove',mousemove);
+        tankunmove.addEventListener('mouseup',mouseup);
+        function mousemove(e){
+        var x = e.clientX -100 + 'px';
+        var y = e.clientY -100 + 'px';
+        this.style.top = y;
+        this.style.width="20";
+        this.style.height="20";
+        this.style.left = x;
+        this.style.margin= "0";
+        this.classList.add("arriba");
+    }
+    function mouseup(){
+        tankunmove.removeEventListener('mousemove', mousemove);
+        this.classList.remove("arriba");
+    }
+}
+
+function mousedownus(){    
+        usmove.addEventListener('mousemove',mousemove);
+        usmove.addEventListener('mouseup',mouseup);
+        function mousemove(e){
+        var x = e.clientX -100 + 'px';
+        var y = e.clientY -100 + 'px';
+        this.style.top = y;
+        this.style.width="20";
+        this.style.height="20";
+        this.style.left = x;
+        this.style.margin= "0";
+        this.classList.add("arriba");
+    }
+    function mouseup(){
+        usmove.removeEventListener('mousemove', mousemove);
+        this.classList.remove("arriba");
+    }
+}
+function mousedownbarcode(){    
+        barcodemove.addEventListener('mousemove',mousemove);
+        barcodemove.addEventListener('mouseup',mouseup);
+        function mousemove(e){
+        var x = e.clientX -100 + 'px';
+        var y = e.clientY -100 + 'px';
+        this.style.top = y;
+        this.style.width="20";
+        this.style.height="20";
+        this.style.left = x;
+        this.style.margin= "0";
+        this.classList.add("arriba");
+    }
+    function mouseup(){
+        barcodemove.removeEventListener('mousemove', mousemove);
+        this.classList.remove("arriba");
+    }
+}
+function mousedownkinn(){    
+        kinnmove.addEventListener('mousemove',mousemove);
+        kinnmove.addEventListener('mouseup',mouseup);
+        function mousemove(e){
+        var x = e.clientX -100 + 'px';
+        var y = e.clientY -100 + 'px';
+        this.style.top = y;
+        this.style.width="20";
+        this.style.height="20";
+        this.style.left = x;
+        this.style.margin= "0";
+        this.classList.add("arriba");
+    }
+    function mouseup(){
+        kinnmove.removeEventListener('mousemove', mousemove);
+        this.classList.remove("arriba");
+    }
+}
+
+</script>
+</html> 
+
